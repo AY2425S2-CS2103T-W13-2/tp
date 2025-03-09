@@ -337,7 +337,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
+* **Client**: The customers who the salesperson (also user of this application) is selling products to.
+* **Command**: A one-line instruction typed into the application by user.
+* **Contact detail**: Including contact names, phone numbers, adresses and optionally tags, etc.
+* **CSV file**: Comma-separated values, a plain text file format that stores data in a table-like structure. Can be opened using Microsoft Excel or be imported to other supported applications.
+* **Main features**: The main features of this application, including _list_, _add_, _delete_, etc.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
+* **Salesperson**: Anyone who is selling things and has the need to note down customers' information.
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
