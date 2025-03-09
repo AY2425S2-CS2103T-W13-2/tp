@@ -300,32 +300,67 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `ClientConnect` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Adding a client**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User enters the command to add a client.
+2.  ClientConnect validates the input format and checks that all required fields are present.
+3.  ClientConnect adds the person to the address book.
+4.  ClientConnect displays a confirmation message showing the newly added contact details.
+
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. Invalid Field Detected:
+  
+  * 2a1. If ClientConnect detects a missing or incorrectly formatted field, it displays an error message. 
+  * 2a2. User re-enters the correct information. 
+  * 2a3. ClientConnect re-validates the updated input and proceeds from step 2 once the error is resolved.
 
-  Use case ends.
+**Use case: View List of Clients**
 
-* 3a. The given index is invalid.
+**MSS**
 
-    * 3a1. AddressBook shows an error message.
+1.  User enters the command to view current list of added entities 
+2.  ClientConnect validates the command input. 
+3.  ClientConnect retrieves all stored entities from the address book. 
+4.  ClientConnect displays the list with each entity’s name, contact number, and address in a clear, formatted view.
 
-      Use case resumes at step 2.
 
-*{More to be added}*
+    Use case ends.
+
+**Extensions**
+
+* 2a: If the command input is not recognized (e.g., due to a typo), AB3 displays: “I do not understand your command, please try again.”
+* 3a: If no entities are found (i.e., the address book is empty), ClientConnect displays the message: “Your list is empty.”
+
+**Use case: Delete a client**
+
+**MSS**
+
+1.  User enters the command to view the list of clients. 
+2.  ClientConnect displays the full list of clients. 
+3.  User enters the command to delete a client. 
+4.  ClientConnect validates the command. 
+5.  ClientConnect retrieves the details of the person at the specified index. 
+6.  ClientConnect deletes the person's details from the address book. 
+7.  ClientConnect displays a success message:”Deleted: <Info of the deleted person>”
+
+
+    Use case ends.
+
+**Extensions**
+
+* 4a: If the <index> parameter is missing or not an integer, ClientConnect displays: “Please provide a valid index for the entry.”
+* 4a: If the command includes extra parameters beyond the required <index>, ClientConnect ignores the additional fields and processes the command based solely on the valid <index>.
+* 5a: If the provided <index> is not within the range of the list size, ClientConnect displays: “Please provide a valid index for the entry.”
+* 5a: If the address book is empty when the command is executed, ClientConnect displays an error message: “Your list is empty.”
+
 
 ### Non-Functional Requirements
 
