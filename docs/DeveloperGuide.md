@@ -274,27 +274,45 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* salespeople who wish to know their users' preferences better
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: provide fast access to clients’ addresses and preferences to help salespeople in making sales decisions and building rapports with clients, which can potentially increase their sales revenue
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
+| Priority | As a …​                                               | I want to …​                                                             | So that I can…​                                                                |
+|----------|-------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| `* * *`  | salesperson                                           | add in my clients’ contact details                                       | contact them for business purposes                                             |
+| `* * *`  | salesperson                                           | edit my clients’ contact details                                         | keep their information updated and relevant                                    |
+| `* * *`  | salesperson                                           | delete a person                                                          | get rid of contact information that I don’t need anymore                       |
+| `* * *`  | salesperson                                           | find my clients’ info quickly in a large database                        | locate contact details of persons without having to go through the entire list |
+| `* * *`  | salesperson who wants to know my customer preferences | rank my clients based on the most purchased product type                 | find out who my potential customers are for a given product                    |
+| `* * *`  | new user                                              | view examples for the main features                                      | get on board with the application more easily                                  |
+| `* *`    | user                                                  | be able to expand out the client information                             | view it with a bigger window                                                   |
+| `* *`    | user                                                  | undo all my previously executed commands                                 | revert changes without having to manually type in a long command               |
+| `* *`    | user                                                  | search for clients by name, phone number, or tag                         | quickly retrieve their information without scrolling through the entire list   |
+| `* *`    | salesperson                                           | add profile pictures for my clients                                      | quickly recognize them and personalize my interactions                         |
+| `* *`    | salesperson                                           | add social media links to client profiles                                | easily connect with them on different platforms                                |
+| `* *`    | salesperson whose clients are of different statuses   | categorize clients into different groups (e.g., VIP, Potential, Regular) | manage them more efficiently and tailor my communication                       |  
+| `* *`    | salesperson whose customers come from many industries | add tags for clients                                                     | split them into categories                                                     |
+| `* *`    | salesperson                                           | filter clients by tags                                                   | quickly see all the clients inside one category                                |
+| `* *`    | user                                                  | be able to use the software in dark mode                                 | view the contents comfortably                                                  |
+| `*`      | user                                                  | have multiple accounts                                                   | save customer profiles for different businesses                                |
+| `*`      | salesperson who needs to report to my company         | export my client list to a CSV file                                      | share it with my team or use it for data analysis and reporting                |
+| `*`      | salesperson                                           | track the geographical location of my clients                            | plan visits efficiently                                                        |
+| `*`      | paranoid user                                         | access my address book via an authentication system                      | my customer profiles are kept confidential                                     |
+| `*`      | user                                                  | use the software in my desired language                                  | understand how to use the software better                                      |
+
+
+
+
 
 *{More to be added}*
 
