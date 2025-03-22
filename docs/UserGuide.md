@@ -106,7 +106,7 @@ Ready to see all your amazing contacts? Just type:
 list
 ```
 
-* This command will display a complete list of every client in your address book, so you can easily check out all your contacts at a glance. Enjoy the view!
+* This command will display a complete list of every client in your address book, so you can easily check out all your contacts at a glance. Enjoy the view!<br>
 ![result for 'list'](images/ListCommandUiResult.png)
 
 ### Editing a client : `edit`
