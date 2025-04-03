@@ -267,9 +267,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 2a. Invalid Field Detected:
-  
-  * 2a1. If ClientConnect detects a missing or incorrectly formatted field, it displays an error message. 
-  * 2a2. User re-enters the correct information. 
+  * 2a1. If ClientConnect detects a missing or incorrectly formatted field, it displays an error message.
+  * 2a2. User re-enters the correct information.
   * 2a3. ClientConnect re-validates the updated input and proceeds from step 2 once the error is resolved.
 
 **Use case: View List of Clients**
