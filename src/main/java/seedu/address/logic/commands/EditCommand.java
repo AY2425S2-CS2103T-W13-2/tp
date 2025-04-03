@@ -104,8 +104,14 @@ public class EditCommand extends Command {
         Email updatedEmail = editClientDescriptor.getEmail().orElse(clientToEdit.getEmail());
         Address updatedAddress = editClientDescriptor.getAddress().orElse(clientToEdit.getAddress());
         Set<Tag> updatedTags = editClientDescriptor.getTags().orElse(clientToEdit.getTags());
-        Optional<ProductPreference> updatedProductPreference =
-                editClientDescriptor.getProductPreference().or(() -> clientToEdit.getProductPreference());
+
+        Optional<ProductPreference> updatedProductPreference;
+        if (editClientDescriptor.isProductPreferenceEdited()) {
+            updatedProductPreference = editClientDescriptor.getProductPreference();
+        } else {
+            updatedProductPreference = clientToEdit.getProductPreference();
+        }
+
         Optional<Description> updatedDescription =
                 editClientDescriptor.getDescription();
 
@@ -158,6 +164,7 @@ public class EditCommand extends Command {
         private Optional<Description> description = Optional.ofNullable(null);
         private Optional<Priority> priority = Optional.empty();
         private boolean priorityEdited = false;
+        private boolean productPreferenceEdited = false;
 
         public EditClientDescriptor() {}
 
@@ -171,9 +178,9 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
-            setProductPreference(toCopy.productPreference);
+            setProductPreferenceWithConstructor(toCopy.productPreference, toCopy.productPreferenceEdited);
             setDescription(toCopy.description);
-            setPriority(toCopy.priority);
+            setPriorityWithConstructor(toCopy.priority, toCopy.priorityEdited);
         }
 
         /**
@@ -181,7 +188,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, productPreference.orElse(null),
-                    priority.orElse(null)) || priorityEdited;
+                    priority.orElse(null)) || priorityEdited || productPreferenceEdited;
         }
 
         public void setName(Name name) {
@@ -229,6 +236,11 @@ public class EditCommand extends Command {
             return priorityEdited;
         }
 
+        public void setPriorityWithConstructor(Optional<Priority> priority, boolean priorityEdited) {
+            this.priority = priority;
+            this.priorityEdited = priorityEdited;
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -239,10 +251,21 @@ public class EditCommand extends Command {
 
         public void setProductPreference(Optional<ProductPreference> productPreference) {
             this.productPreference = productPreference;
+            productPreferenceEdited = true;
         }
 
         public Optional<ProductPreference> getProductPreference() {
             return productPreference;
+        }
+
+        public boolean isProductPreferenceEdited() {
+            return productPreferenceEdited;
+        }
+
+        public void setProductPreferenceWithConstructor(Optional<ProductPreference> productPreference, boolean
+                productPreferenceEdited) {
+            this.productPreference = productPreference;
+            this.productPreferenceEdited = productPreferenceEdited;
         }
 
         /**

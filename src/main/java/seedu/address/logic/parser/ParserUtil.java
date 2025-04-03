@@ -149,7 +149,7 @@ public class ParserUtil {
 
         String trimmed = productPreference.get().trim();
         if (trimmed.isEmpty()) {
-            throw new ParseException("Product preference cannot be empty or whitespace only");
+            return Optional.empty();
         }
 
         return Optional.of(new ProductPreference(trimmed, new Frequency(freqValue)));
