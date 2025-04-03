@@ -30,6 +30,11 @@
                     </font>
                 </Label>
 
+                <VBox fx:id="prioritySection" spacing="5" styleClass="detail-section">
+                    <Label text="Priority" styleClass="detail-subheader"/>
+                    <Label fx:id="priority" styleClass="detail-content"/>
+                </VBox>
+
                 <VBox spacing="5" styleClass="detail-section">
                     <Label text="Contact Information" styleClass="detail-subheader"/>
                     <Label fx:id="phone" styleClass="detail-content"/>
