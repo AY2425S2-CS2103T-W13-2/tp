@@ -229,6 +229,11 @@ public class ParserUtil {
             return Optional.empty();
         }
 
+        String trimmed = priority.get().trim();
+        if (trimmed.isEmpty()) {
+            return Optional.empty();
+        }
+
         int priorityValue;
 
         try {
