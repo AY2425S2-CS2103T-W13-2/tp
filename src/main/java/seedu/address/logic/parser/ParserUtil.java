@@ -229,15 +229,15 @@ public class ParserUtil {
             return Optional.empty();
         }
 
-        String trimmed = priority.get().trim();
-        if (trimmed.isEmpty()) {
+        String trimmedValue = priority.get().trim();
+        if (trimmedValue.isEmpty()) {
             return Optional.empty();
         }
 
         int priorityValue;
 
         try {
-            priorityValue = Integer.parseInt(priority.get());
+            priorityValue = Integer.parseInt(trimmedValue);
         } catch (NumberFormatException e) {
             throw new ParseException(Priority.MESSAGE_CONSTRAINTS_INT);
         }
