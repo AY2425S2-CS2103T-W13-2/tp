@@ -215,10 +215,10 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseProductPreference_trimmedEmptyInput_throwsParseException() {
+    public void parseProductPreference_trimmedEmptyInput_returnsEmpty() throws Exception {
         Optional<String> input = Optional.of("   ");
         Optional<Frequency> freq = Optional.of(new Frequency(2));
-        assertThrows(ParseException.class, () -> ParserUtil.parseProductPreference(input, freq));
+        assertEquals(Optional.empty(), ParserUtil.parseProductPreference(input, freq));
     }
 
     @Test
