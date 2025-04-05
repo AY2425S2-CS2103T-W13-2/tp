@@ -1,8 +1,11 @@
 // ClientDetailPanel.java
 package seedu.address.ui;
 
+import java.util.Comparator;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import seedu.address.model.client.Client;
@@ -25,8 +28,10 @@ public class ClientDetailPanel extends UiPart<Region> {
     @FXML private VBox productPreferenceSection;
     @FXML private Label description;
     @FXML private VBox descriptionSection;
-    @FXML private Label priority; // Add priority label
+    @FXML private Label priority;
     @FXML private VBox prioritySection;
+    @FXML private FlowPane tags;
+    @FXML private VBox tagsSection;
 
 
     /**
@@ -40,14 +45,21 @@ public class ClientDetailPanel extends UiPart<Region> {
         email.setText("Email: " + client.getEmail().value);
         address.setText("Address: " + client.getAddress().value);
 
+        if (!client.getTags().isEmpty()) {
+            client.getTags().stream().sorted(Comparator.comparing(tag -> tag.tagName)).forEach(tag -> tags.getChildren()
+                    .add(new Label(tag.tagName)));
+        } else {
+            tagsSection.setVisible(false);
+            tagsSection.setManaged(false);
+        }
         if (client.getPriority().isPresent()) {
-            priority.setText("Priority: " + client.getPriority()
+            priority.setText(client.getPriority()
                     .map(Priority::toString).orElse(""));
         } else {
             prioritySection.setVisible(false);
             prioritySection.setManaged(false);
         }
-        if (client.getProductPreference().isPresent()) {
+        if (client.getProductPreference().map(d -> !d.toString().isEmpty()).orElse(false)) {
             productPreference.setText("Preferred Products: " + client.getProductPreference()
                     .map(ProductPreference::toString).orElse(""));
             frequency.setText("Purchase Frequency: " + client.getProductPreference().get().getFrequency());
@@ -55,8 +67,8 @@ public class ClientDetailPanel extends UiPart<Region> {
             productPreferenceSection.setVisible(false);
             productPreferenceSection.setManaged(false);
         }
-        if (client.getDescription().isPresent()) {
-            description.setText("Description: " + client.getDescription()
+        if (client.getDescription().map(d -> !d.toString().isEmpty()).orElse(false)) {
+            description.setText(client.getDescription()
                     .map(Description::toString).orElse(""));
         } else {
             descriptionSection.setVisible(false);
